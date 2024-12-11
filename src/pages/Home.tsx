@@ -188,7 +188,7 @@ export default function Home() {
                     Past Event {i}
                   </h3>
                   <p className="text-indigo-200">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
                   </p>
                 </div>
               ))}
