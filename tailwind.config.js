@@ -3,6 +3,13 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        Roboto:["Roboto", "sans-serif"],
+        Montserrat:["Montserrat", "sans-serif"],
+        OpenSans: ["Open Sans", "sans-serif"],
+        Lilita:["Lilita One", "sans-serif"],
+        Audiowide:["Audiowide", "sans-serif"]
+      },
       colors: {
         primary: {
           DEFAULT: '#ff0000',

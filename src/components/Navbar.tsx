@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import NotificationCenter from './NotificationCenter';
 import { useAuth } from '../contexts/AuthContext';
+import Ecell from '../constants/ecell_logo.svg'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,23 +26,23 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <GraduationCap className="h-8 w-8 text-red-600" />
-              <span className="text-xl font-bold text-white">
+              <img src={Ecell} alt="logo" className='w-16 ' />
+              <span className="text-xl font-bold text-white mt-4 font-Montserrat ">
                 E-Cell VITB
               </span>
             </Link>
           </div>
 
           <div className="hidden md:flex md:items-center md:space-x-4">
-            <div className="flex items-baseline space-x-4">
+            <div className="flex items-baseline space-x-4 font-Roboto">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`nav-link ${
+                  className={`nav-link text-base  ${
                     isActive(link.path)
-                      ? 'bg-red-600 text-white'
-                      : 'text-white hover:text-white hover:bg-red-600'
+                      ? ' text-red-600'
+                      : 'text-white hover:text-red-600'
                   }`}
                 >
                   {link.label}
