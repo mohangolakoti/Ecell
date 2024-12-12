@@ -12,6 +12,9 @@ import About from '../components/About';
 import Ecell from '../constants/ecell_logo.svg';
 import { TypeAnimation } from 'react-type-animation';
 import Events1 from '../components/Events1';
+import banner from '../constants/b2.jpg';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const [events, setEvents] = useState([]);
@@ -22,6 +25,12 @@ export default function Home() {
     seconds: 0,
   });
   const { getDocuments } = useFirestore('events');
+
+  useEffect(() => {
+    Aos.init({
+      duration: 2000,
+    });
+  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -91,7 +100,8 @@ export default function Home() {
       {/* Animated Heading */}
       <motion.img
       src={Ecell}
-      className="w-28">
+      className="w-28"
+      data-aos="fade-up">
       </motion.img>
 
       <motion.h1
@@ -233,6 +243,10 @@ export default function Home() {
       </section>
       <section>
         <CaseStudies/>
+      </section>
+      <section className='mt-16'>
+        {/* <img src={banner} alt="banner" className='h-72 w-full mt-16' /> */}
+        <hr />
       </section>
       <section>
         <About/>

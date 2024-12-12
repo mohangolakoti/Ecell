@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useFirestore } from "../hooks/useFirestore";
 import { Calendar, User } from "lucide-react";
 import { motion } from "framer-motion";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface CaseStudy {
   id: string;
@@ -19,6 +21,12 @@ export default function CaseStudies() {
   const { getDocuments } = useFirestore("case-studies");
 
   useEffect(() => {
+    Aos.init({
+      duration: 2000,
+    });
+  }, []);
+
+  useEffect(() => {
     const fetchCaseStudies = async () => {
       const data = await getDocuments([]);
       setCaseStudies(data as CaseStudy[]);
@@ -30,9 +38,9 @@ export default function CaseStudies() {
     <div className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 text-white flex justify-center">
       <div className="mx-auto w-1/2">
         <h1 className="font-bold text-3xl text-center py-10 pb-14 font-Montserrat">
-          Case Studies
+          Case <span className="text-violet-600">Studies</span>
         </h1>
-        <div className="flex justify-center">
+        <div className="flex justify-center" data-aos="fade-in">
           {caseStudies.map((study, index) => (
             <motion.div
               key={study.id}
