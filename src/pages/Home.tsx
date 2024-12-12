@@ -139,42 +139,57 @@ export default function Home() {
 
       {/* Next Event Timer Section */}
       <section className="py-10 px-4 pt-1 mt-20">
-        <div className="max-w-7xl mx-auto text-cente">
-          {upcomingEvents[0] && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-12"
-            >
-              <h2 className="text-3xl font-bold text-black mb-4">Next Event</h2>
-              <div className="bg-none backdrop-blur-md rounded-lg p-8 border border-none">
-                <h3 className="text-2xl font-semibold text-white mb-4">{upcomingEvents[0].name}</h3>
-                <div className="grid grid-cols-4 gap-4 mb-6">
-                  <div className="bg-red-600 p-4 rounded-lg">
+  <div className="max-w-7xl mx-auto text-center flex items-start space-x-6">
+    {/* Left Section */}
+    <div className="flex-1 text-left">
+    <h1 className="text-white text-4xl font-bold mb-4" style={{ color: '#4B0082' }}>Innovit</h1>
+    <p className="text-white font-roboto mt-4">
+        The Entrepreneurship Cell (E-Cell) is a student-driven initiative aimed at fostering
+        entrepreneurial spirit and innovation among young minds. We provide a platform for aspiring
+        entrepreneurs to nurture their ideas, collaborate, and transform them into impactful
+        ventures. With workshops, competitions, and mentorship programs, E-Cell serves as a
+        catalyst for startup culture, empowering students to become leaders, creators, and
+        change-makers in today's competitive world.
+      </p>
+      <div className='flex mt-4'>
+      <div className="bg-[#555555] text-center p-4 rounded-lg mr-3 mt-5 w-25">
                     <span className="text-3xl font-bold text-white">{timeLeft.days}</span>
-                    <p className="text-red-200">Days</p>
-                  </div>
-                  <div className="bg-red-600 p-4 rounded-lg">
+                    <p className="text-white font-bold">days</p>
+                  </div>  
+                  <div className="bg-[#555555] text-center p-4 rounded-lg mr-3 mt-5 w-25">
                     <span className="text-3xl font-bold text-white">{timeLeft.hours}</span>
-                    <p className="text-red-200">Hours</p>
+                    <p className="text-white font-bold">hours</p>
                   </div>
-                  <div className="bg-red-600 p-4 rounded-lg">
+                  <div className="bg-[#555555] text-center p-4 rounded-lg mr-3 mt-5 w-25">
                     <span className="text-3xl font-bold text-white">{timeLeft.minutes}</span>
-                    <p className="text-red-200">Minutes</p>
+                    <p className="text-white font-bold" >min</p>
                   </div>
-                  <div className="bg-blue-600/20 p-4 rounded-lg">
+                  <div className="bg-[#555555] text-center p-4 rounded-lg mr-3 mt-5 w-25">
                     <span className="text-3xl font-bold text-white">{timeLeft.seconds}</span>
-                    <p className="text-red-200">Seconds</p>
+                    <p className="text-white font-bold">sec</p>
                   </div>
-                </div>
-                <button className="mt-8 px-8 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors">
-                  Register Now
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </div>
-      </section>
+      </div>
+    </div>
+
+    {/* Vertical Line */}
+    <div className="border-l-2 border-gray-300 h-auto"></div>
+    {/* Right Section */}
+    <div className="flex-1 text-center">
+    <img
+  src="https://www.ecellsgsits.com/_next/image?url=%2Fes1.jpg&w=3840&q=75"
+  className="w-64 h-full w-2/3 mx-auto mb-4 shadow-lg shadow-gray-500 rounded-"
+  alt="E-Cell"
+/>
+
+
+      <button className="mt-4 px-8 py-3 bg-[#4B0082] text-white rounded-full hover:bg-indigo-700 transition-colors">
+        Register Now
+      </button>
+    </div>
+  </div>
+</section>
+
+
       <section className="py-20 px-4 bg-gradient-to-b from-transparent to-black/30">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -186,7 +201,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-black text-center">Event Highlights</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-[#D6BD98] backdrop-blur-md p-6 rounded-xl">
+                <div key={i} className=" backdrop-blur-md p-6 rounded-xl">
                   <img
                     src={`https://source.unsplash.com/random/800x600?startup,${i}`}
                     alt="Event"
