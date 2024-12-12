@@ -29,7 +29,7 @@ export default function About() {
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-3xl font-bold text-white text-center mb-12 font-Montserrat"
+            className="text-3xl font-bold text-white text-center mb-12 pb-4 font-Montserrat"
           >
             Our Initiatives
           </motion.h2>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useFirestore } from '../hooks/useFirestore';
-import { Calendar, User } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { useFirestore } from "../hooks/useFirestore";
+import { Calendar, User } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface CaseStudy {
   id: string;
@@ -16,7 +16,7 @@ interface CaseStudy {
 export default function CaseStudies() {
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
-  const { getDocuments } = useFirestore('case-studies');
+  const { getDocuments } = useFirestore("case-studies");
 
   useEffect(() => {
     const fetchCaseStudies = async () => {
@@ -29,7 +29,9 @@ export default function CaseStudies() {
   return (
     <div className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 text-white flex justify-center">
       <div className="mx-auto w-1/2">
-        <h1 className='font-bold text-3xl text-center py-4 font-Montserrat'>Case Studies</h1>
+        <h1 className="font-bold text-3xl text-center py-10 pb-14 font-Montserrat">
+          Case Studies
+        </h1>
         <div className="flex justify-center">
           {caseStudies.map((study, index) => (
             <motion.div
@@ -48,17 +50,24 @@ export default function CaseStudies() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-2 font-Roboto">{study.title}</h3>
-                <p className="text-gray-300 mb-4 line-clamp-2 font-OpenSans">{study.summary}</p>
-                <div className="flex items-center justify-between text-sm text-gray-400">
+              <div className="p-6 group relative">
+                <div className="absolute inset-0 bg-transparent transition-transform duration-500 ease-in-out group-hover:bg-violet-600 group-hover:scale-y-100 origin-bottom scale-y-0"></div>
+                <h3 className="relative z-10 text-xl font-semibold text-white mb-2 font-Roboto">
+                  {study.title}
+                </h3>
+                <p className="relative z-10 text-gray-300 mb-4 line-clamp-2 font-OpenSans">
+                  {study.summary}
+                </p>
+                <div className="relative z-10 flex items-center justify-between text-sm text-gray-400">
                   <div className="flex items-center font-OpenSans">
                     <User className="h-4 w-4 mr-1" />
                     <span>{study.author}</span>
                   </div>
                   <div className="flex items-center font-OpenSans">
                     <Calendar className="h-4 w-4 mr-1" />
-                    <span>{new Date(study.publishedDate).toLocaleDateString()}</span>
+                    <span>
+                      {new Date(study.publishedDate).toLocaleDateString()}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -78,13 +87,17 @@ export default function CaseStudies() {
                 className="w-full h-64 object-cover rounded-lg"
               />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4">{selectedStudy.title}</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">
+              {selectedStudy.title}
+            </h2>
             <div className="flex items-center text-gray-300 mb-6">
               <User className="h-5 w-5 mr-2" />
               <span>{selectedStudy.author}</span>
               <span className="mx-2">•</span>
               <Calendar className="h-5 w-5 mr-2" />
-              <span>{new Date(selectedStudy.publishedDate).toLocaleDateString()}</span>
+              <span>
+                {new Date(selectedStudy.publishedDate).toLocaleDateString()}
+              </span>
             </div>
             <div
               className="prose prose-invert max-w-none"
