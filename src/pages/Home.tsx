@@ -4,10 +4,14 @@ import { OrbitControls } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import MagicParticles from '../components/MagicParticles';
 import { Sparkles } from 'lucide-react';
-import { useFirestore } from './../hooks/useFirestore';
+import { useFirestore } from '../hooks/useFirestore';
 import Globe from '../components/Globe';
 import { Menu, X, GraduationCap } from 'lucide-react';
-
+import CaseStudies from '../components/CaseStudies';
+import About from '../components/About';
+import Ecell from '../constants/ecell_logo.svg';
+import { TypeAnimation } from 'react-type-animation';
+import Events from '../components/Events';
 
 export default function Home() {
   const [events, setEvents] = useState([]);
@@ -82,22 +86,19 @@ export default function Home() {
       initial={{ opacity: 0, y: 50 }} // Fade and slide up
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.5, ease: "easeOut" }}
-      className="space-y-6 z-10"
+      className="z-10 flex flex-col items-center gap-5"
     >
       {/* Animated Heading */}
+      <motion.img
+      src={Ecell}
+      className="w-28">
+      </motion.img>
+
       <motion.h1
         initial={{ scale: 0.5, rotate: -15 }} // Start scaled down and rotated
         animate={{ scale: 1, rotate: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="text-6xl md:text-  font-bold text-white  flex justify-center"
-      >
-        <GraduationCap className="h-20 w-20 text-red-600 " />
-      </motion.h1>
-      <motion.h1
-        initial={{ scale: 0.5, rotate: -15 }} // Start scaled down and rotated
-        animate={{ scale: 1, rotate: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="text-6xl md:text-8xl font-bold text-white"
+        className="text-6xl md:text-8xl font-bold text-transparent bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text font-Montserrat"
       >
         E-Cell VITB
       </motion.h1>
@@ -108,9 +109,15 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }} // Slide in from below
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-        className="text-xl md:text-2xl font-bold text-yellow-600"
+        className="text-xl md:text-2xl font-bold font-mono text-transparent bg-gradient-to-r from-rose-400 to-red-500 bg-clip-text"
       >
-        Create. Lead. Innovate.
+        <span className='text-white font-bold text-3xl'>&lt; </span>
+        <TypeAnimation
+          sequence={['Create.', 1100, 'Lead.', 1100, 'Innovate.', 1100]}
+          repeat={Infinity}
+          className=''
+        />
+        <span className='text-white font-bold text-3xl'>&gt;</span>
       </motion.p>
 
       {/* Button Animation */}
@@ -119,9 +126,10 @@ export default function Home() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 1, ease: "easeOut" }}
       >
-        <button className="px-6 py-3 bg-blue-500 text-white rounded-full text-lg font-semibold shadow-lg hover:bg-blue-600">
-          Get Started
-        </button>
+        <button className="px-6 py-3 text-lg rounded-full font-semibold hover:border hover:text-white hover:border-white transition-all duration-300 bg-gray-300 hover:bg-transparent text-black font-OpenSans">
+  Get Started
+</button>
+
       </motion.div>
     </motion.div>
   </div>
@@ -195,6 +203,15 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+      </section>
+      <section>
+        <Events />
+      </section>
+      <section>
+        <CaseStudies/>
+      </section>
+      <section>
+        <About/>
       </section>
     </div>
   );
