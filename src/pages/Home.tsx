@@ -94,17 +94,30 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="h-screen relative overflow-hidden bg-black">
-        {/* Magic Particles Canvas */}
-        <div className="absolute inset-0 mt-20">
-          <Canvas camera={{ position: [0, 0, 3] }}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[20, 20, 0]} />
-            <MagicParticles />
-            <OrbitControls enableZoom={false} />
-          </Canvas>
-        </div>
+      <section className="h-screen relative overflow-hidden bg-black" >
+  {/* Magic Particles Canvas */}
+  <div className="absolute inset-0 mt-20">
+    <Canvas camera={{ position: [0, 0, 3] }}>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[20, 20, 0]} />
+      <MagicParticles />
+      <OrbitControls enableZoom={false} />
+    </Canvas>
+  </div>
 
+  {/* Main Content Animation */}
+  <div className="absolute inset-0 flex items-center justify-center text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }} // Fade and slide up
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      className="z-10 flex flex-col items-center gap-5"
+    >
+      {/* Animated Heading */}
+      <motion.img
+      src={Ecell}
+      className="w-28">
+      </motion.img>
         {/* Main Content Animation */}
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <motion.div
@@ -388,6 +401,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {selectedEvent && (
+              <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                <RegistrationForm
+                  eventId={selectedEvent.id}
+                  eventName={selectedEvent.name}
+                  eventBanner={selectedEvent.eventBanner}
+                  coordinator={selectedEvent.coordinator}
+                  onClose={() => setSelectedEvent(null)}
+                />
+              </div>
+            )}
     </div>
   );
 }

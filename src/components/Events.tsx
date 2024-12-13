@@ -57,8 +57,8 @@ export default function Events() {
       <div className="max-w-7xl mx-auto">
 
         {/* Past Events */}
-        <section>
-          <h2 className='font-bold text-3xl text-center py-4 font-Montserrat text-white flex justify-center items-center'>Past Events</h2>
+        <section> 
+          <h2 className='font-bold text-3xl text-center py-4 font-Montserrat pb-14 text-white flex justify-center items-center'>Past Events</h2>
           <div className="flex gap-6 justify-center w-full">
             {pastEvents.map((event) => (
               <motion.div
