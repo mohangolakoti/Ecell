@@ -12,6 +12,10 @@ import { TypeAnimation } from 'react-type-animation';
 import Events from '../components/Events';
 import RegistrationForm from '../components/RegistrationForm';
 
+import Events1 from '../components/Events1';
+import banner from '../constants/b2.jpg';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const [events, setEvents] = useState([]);
