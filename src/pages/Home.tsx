@@ -10,9 +10,26 @@ import { Menu, X, GraduationCap } from "lucide-react";
 import CaseStudies from "../components/CaseStudies";
 import About from "../components/About";
 import Ecell from "../constants/ecell_logo.svg";
+import Mallika from "../constants/Mallika.jpg";
+import Raghuram from "../constants/Raghuram.jpg";
+import Druthi from "../constants/Druthi.jpg";
+import Phani from "../constants/Phani.jpg";
+import Deekshitha from "../constants/Deekshitha.jpg";
+import Surya from "../constants/Surya.jpg";
+import Narasimharao from "../constants/Narasimharao.jpg";
+import Preethi from "../constants/Preethi.jpg";
 import { TypeAnimation } from "react-type-animation";
 import Events from "../components/Events";
 import Team from "../components/Team";
+import Card from "../components/Card";
+import Vishnu from "../constants/Vishnu.jpg";
+import Nikhil from "../constants/Nikhil.jpg";
+import Prasanth from "../constants/Prasanth.jpg";
+import Faiza from "../constants/Faiza.jpg";
+import Rajkumar from "../constants/Rajkumar.jpg";
+import Yagna from "../constants/Yagna.jpg";
+import Sohan from "../constants/Sohan.jpg";
+import Laikha from "../constants/Laikha.jpg";
 
 export default function Home() {
   const [events, setEvents] = useState([]);
@@ -248,6 +265,128 @@ export default function Home() {
       </section>
       <section>
         <About />
+      </section>
+      <section>
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-3xl font-bold text-white text-center mt-12"
+        >
+          Our Team
+        </motion.h1>
+        <div className="flex flex-col items-center gap-y-0 bg-black-400 p-4">
+          {/* Row 1 */}
+          <div className="flex gap-0">
+            <Card
+              imageSrc={Preethi}
+              name="Mrs.B.Preethi"
+              role="Faculty Coordinator"
+              linkedin="https://linkedin.com/in/johndoe"
+            />
+            <Card
+              imageSrc={Narasimharao}
+              name="Mr.V.S.N.Narasimha Raju"
+              role="Faculty Coordinator"
+              linkedin="https://linkedin.com/in/janesmith"
+            />
+          </div>
+          {/* Row 2 */}
+          <div className="flex gap-0">
+            <Card
+              imageSrc={Surya}
+              name="Surya"
+              role="President"
+              linkedin="https://www.linkedin.com/in/surya-teja-191a81294/"
+            />
+            <Card
+              imageSrc={Mallika}
+              name="Malika"
+              role="Secretarory"
+              linkedin="https://www.linkedin.com/in/naga-mallika-balla-13003b27b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            />
+          </div>
+          {/* Row 3 */}
+          <div className="flex gap-0">
+            <Card
+              imageSrc={Phani}
+              name="Phanindra"
+              role="Technical Lead"
+              linkedin="https://www.linkedin.com/in/nelavalli-phanindra-b074a8255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            />
+            <Card
+              imageSrc={Druthi}
+              name="Druthi"
+              role="PR/Marketing Lead"
+              linkedin="https://www.linkedin.com/in/sri-dhruthi-mallela-9455ab2a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+            />
+            <Card
+              imageSrc={Raghuram}
+              name="Raghuram"
+              role="R&D Lead"
+              linkedin="https://www.linkedin.com/in/raghuram-manikanta-ba0518280?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            />
+            <Card
+              imageSrc={Deekshitha}
+              name="Deekshitha"
+              role="Event Managing Lead"
+              linkedin="https://www.linkedin.com/in/deexitha-medisetty?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+            />
+          </div>
+          {/* Row 4 */}
+          <div className="flex gap-0">
+            <Card
+              imageSrc={Vishnu}
+              name="Vishnu"
+              role="Startup Liason lead"
+              linkedin="https://www.linkedin.com/in/aganti-vishnu-vardhan-297369246?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "
+            />
+            <Card
+              imageSrc={Nikhil}
+              name="Nikhil"
+              role="Logistics & Operations Lead "
+              linkedin="https://www.linkedin.com/in/sainikhil-edupuganti-61281b2a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            />
+            <Card
+              imageSrc={Prasanth}
+              name="Prasanth"
+              role="Technical Co-Lead"
+              linkedin="https://www.linkedin.com/in/prasanth-pulidhindi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+            />
+            <Card
+              imageSrc={Yagna}
+              name="Yagna"
+              role="PR/Marketing Co-Lead"
+              linkedin="https://linkedin.com/in/michaeldavis"
+            />
+          </div>
+          {/* Row 5 */}
+          <div className="flex gap-0">
+            <Card
+              imageSrc={Faiza}
+              name="Faiza"
+              role="R&D Co-Lead"
+              linkedin="https://www.linkedin.com/in/faiza-mohammed-72697b2b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            />
+            <Card
+              imageSrc={Rajkumar}
+              name="Rajkumar"
+              role="Content Co-Lead"
+              linkedin="https://www.linkedin.com/in/rajkumar-sirra-941585320"
+            />
+            <Card
+              imageSrc={Laikha}
+              name="Laikha"
+              role=" Techincal Associate"
+              linkedin="https://linkedin.com/in/michaeldavis"
+            />
+            <Card
+              imageSrc={Sohan}
+              name="Sohan"
+              role="VidepGraphy Co-Lead"
+              linkedin="https://linkedin.com/in/michaeldavis"
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
