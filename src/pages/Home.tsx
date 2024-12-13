@@ -9,9 +9,11 @@ import About from '../components/About';
 import Ecell from '../constants/ecell_logo.svg';
 import alarm from '../constants/alarm_clock.png';
 import { TypeAnimation } from 'react-type-animation';
-import Events from '../components/Events';
+import Events1 from '../components/Events1';
+import banner from '../constants/b2.jpg';
+import Aos from "aos";
+import "aos/dist/aos.css";
 import RegistrationForm from '../components/RegistrationForm';
-
 
 export default function Home() {
   const [events, setEvents] = useState([]);
@@ -23,6 +25,12 @@ export default function Home() {
     seconds: 0,
   });
   const { getDocuments } = useFirestore('events');
+
+  useEffect(() => {
+    Aos.init({
+      duration: 2000,
+    });
+  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -82,7 +90,7 @@ export default function Home() {
   </div>
 
   {/* Main Content Animation */}
-  <div className="absolute inset-0 flex items-center justify-center text-center">
+  <div className="absolute inset-0 flex items-center justify-center text-center flex-col">
     <motion.div
       initial={{ opacity: 0, y: 50 }} // Fade and slide up
       animate={{ opacity: 1, y: 0 }}
@@ -92,7 +100,8 @@ export default function Home() {
       {/* Animated Heading */}
       <motion.img
       src={Ecell}
-      className="w-28">
+      className="w-28"
+      data-aos="fade-up">
       </motion.img>
 
       <motion.h1
@@ -107,32 +116,72 @@ export default function Home() {
       
       {/* Animated Subtext */}
       <motion.p
-        initial={{ opacity: 0, y: 20 }} // Slide in from below
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-        className="text-xl md:text-2xl font-bold font-mono text-transparent bg-gradient-to-r from-rose-400 to-red-500 bg-clip-text"
-      >
-        <span className='text-white font-bold text-3xl'>&lt; </span>
-        <TypeAnimation
-          sequence={['Create.', 1100, 'Lead.', 1100, 'Innovate.', 1100]}
-          repeat={Infinity}
-          className=''
-        />
-        <span className='text-white font-bold text-3xl'>&gt;</span>
-      </motion.p>
+  initial={{ opacity: 0, y: 20 }} // Slide in from below
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+  className="text-xl md:text-2xl font-bold font-mono text-transparent bg-gradient-to-r from-rose-400 to-red-500 bg-clip-text"
+  style={{ textShadow: "2px 2px 5px rgba(255, 0, 0, 0.8)" }} // Red shadow for the text
+>
+  <TypeAnimation
+    sequence={["Create.", 1100, "Lead.", 1100, "Innovate.", 1100]}
+    repeat={Infinity}
+    className=""
+    style={{ textShadow: "4px 3px 5px rgba(255, 0, 0, 0.8)" }} // Red shadow for animated text
+  />
+  
+</motion.p>
+
 
       {/* Button Animation */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.8 }} // Start smaller and faded
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 1, ease: "easeOut" }}
       >
-        <button className="px-6 py-3 text-lg rounded-full font-semibold hover:border hover:text-white hover:border-white transition-all duration-300 bg-gray-300 hover:bg-transparent text-black font-OpenSans">
+        <button className="px-6 py-3 text-lg rounded-full font-semibold border text-white border-white transition-all duration-300 bg-transparent font-OpenSans">
   Get Started
 </button>
 
-      </motion.div>
-    </motion.div>
+      </motion.div>*/}
+    </motion.div> 
+    <div className="flex items-center justify-center mt-5">
+  <div className="relative group">
+    <button
+      className="relative inline-block p-px font-semibold leading-6 text-white bg-transparent shadow-2xl cursor-pointer rounded-full shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
+    >
+      <span
+        className="absolute inset-0 rounded-full bg-transparent bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      ></span>
+
+      <span
+        className="relative z-10 block px-6 py-3 rounded-full border hover:border-none bg-transparent group-hover:bg-gradient-to-r group-hover:from-teal-400 group-hover:via-blue-500 group-hover:to-purple-500"
+      >
+        <div className="relative z-10 flex items-center space-x-2">
+          <span
+            className="transition-all duration-500 group-hover:translate-x-1"
+          >
+            Get started
+          </span>
+          <svg
+            className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1"
+            data-slot="icon"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+      </span>
+    </button>
+  </div>
+</div>
+
   </div>
 
 </section>
@@ -195,10 +244,14 @@ export default function Home() {
   </div>
 </section>
       <section>
-        <Events />
+        <Events1 />
       </section>
       <section>
         <CaseStudies/>
+      </section>
+      <section className='mt-16'>
+        {/* <img src={banner} alt="banner" className='h-72 w-full mt-16' /> */}
+        <hr />
       </section>
       <section>
         <About/>
