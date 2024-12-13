@@ -21,7 +21,7 @@ export default function ProtectedRoute({ children, adminOnly = false }: Protecte
     return <Navigate to="/login" />;
   }
 
-  if (adminOnly && !user.email?.endsWith('@vishnu.edu.in')) {
+  if (adminOnly && !user.email?.endsWith('.com')) {
     return <Navigate to="/" />;
   }
 

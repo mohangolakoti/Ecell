@@ -35,7 +35,7 @@ export default function EventList() {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-white">Events</h1>
+        <h1 className="text-2xl font-bold text-black">Events</h1>
         <Link
           to="/admin/events/new"
           className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
@@ -69,19 +69,19 @@ export default function EventList() {
           <tbody className="divide-y divide-gray-700">
             {events.map((event) => (
               <tr key={event.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                   {event.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                   {new Date(event.eventDate).toLocaleDateString()}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                   {event.location}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                   {event.registrations?.length || 0}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                   <div className="flex space-x-2">
                     <Link
                       to={`/admin/events/${event.id}/edit`}
