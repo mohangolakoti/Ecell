@@ -4,6 +4,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
 
+
 export default function About() {
 
   useEffect(() => {
@@ -61,6 +62,7 @@ export default function About() {
                   {initiative.title}
                 </h3>
                 <p className="text-gray-300 font-OpenSans">{initiative.description}</p>
+
               </div>
             </motion.div>
             
