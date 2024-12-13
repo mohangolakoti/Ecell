@@ -166,12 +166,12 @@ export default function EventAnalytics() {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-white">Event Analytics</h1>
+        <h1 className="text-2xl font-bold text-black">Event Analytics</h1>
         <div className="flex space-x-4">
           <select
             value={selectedEvent}
             onChange={(e) => setSelectedEvent(e.target.value)}
-            className="p-2 bg-white/10 border border-gray-600 rounded-md text-white"
+            className="p-2 bg-white/5 border border-gray-600 rounded-md text-white"
           >
             <option value="">All Events</option>
             {events.map((event) => (
@@ -198,13 +198,13 @@ export default function EventAnalytics() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-300">Total Registrations</p>
-              <p className="text-3xl font-bold text-white mt-2">
+              <p className="text-sm text-gray-600">Total Registrations</p>
+              <p className="text-3xl font-bold text-gray-600 mt-2">
                 {analyticsData.totalRegistrations}
               </p>
             </div>
             <div className="bg-indigo-600 p-3 rounded-lg">
-              <Users className="h-6 w-6 text-white" />
+              <Users className="h-6 w-6 text-gray-600" />
             </div>
           </div>
         </motion.div>
@@ -217,7 +217,7 @@ export default function EventAnalytics() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-300">Average Team Size</p>
+              <p className="text-sm text-gray-600">Average Team Size</p>
               <p className="text-3xl font-bold text-white mt-2">
                 {analyticsData.averageTeamSize.toFixed(1)}
               </p>
@@ -236,7 +236,7 @@ export default function EventAnalytics() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-300">Completion Rate</p>
+              <p className="text-sm text-gray-600">Completion Rate</p>
               <p className="text-3xl font-bold text-white mt-2">
                 {analyticsData.completionRate.toFixed(1)}%
               </p>
