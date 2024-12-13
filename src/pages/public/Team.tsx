@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useFirestore } from '../../hooks/useFirestore';
-import { Linkedin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { useFirestore } from "../../hooks/useFirestore";
+import { Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface TeamMember {
   id: string;
@@ -14,7 +14,7 @@ interface TeamMember {
 
 export default function Team() {
   const [members, setMembers] = useState<TeamMember[]>([]);
-  const { getDocuments } = useFirestore('team');
+  const { getDocuments } = useFirestore("team");
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -65,7 +65,9 @@ export default function Team() {
                 </div>
               </div>
               <div className="p-4 text-center">
-                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  {member.name}
+                </h3>
                 <p className="text-indigo-300">{member.position}</p>
                 <p className="text-sm text-gray-400">{member.department}</p>
               </div>
