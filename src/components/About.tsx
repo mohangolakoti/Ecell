@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Target, Users, Lightbulb, Award, Rocket } from 'lucide-react';
 
+
 export default function About() {
 
   const initiatives = [
@@ -36,18 +37,26 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {initiatives.map((initiative, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="bg-white/10 backdrop-blur-md rounded-lg p-8"
-              >
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              className="relative group rounded-lg p-8 bg-black overflow-hidden"
+            >
+              {/* Gradient Border Effect */}
+              <div className="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-fuchsia-500 to-cyan-500 blur-sm rounded-lg" />
+              
+              {/* Content Card */}
+              <div className="relative z-10 p-6 bg-black rounded-lg border-sm border-transparent ">
                 <initiative.icon className="h-12 w-12 text-indigo-500 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2 font-Roboto">
                   {initiative.title}
                 </h3>
                 <p className="text-gray-300 font-OpenSans">{initiative.description}</p>
-              </motion.div>
+              </div>
+            </motion.div>
+            
+            
             ))}
           </div>
         </div>
