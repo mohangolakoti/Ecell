@@ -41,7 +41,7 @@ export default function Navbar() {
                   to={link.path}
                   className={`nav-link text-base  ${
                     isActive(link.path)
-                      ? ' text-red-600'
+                      ? ' text-white'
                       : 'text-white hover:text-red-600'
                   }`}
                 >
